@@ -10,4 +10,5 @@ def my_profile():
         "about" : "Hello! I'm a full stack developer that loves python and javascript"
     }
     
+    #This is not a json object, that's because in flask you can return dictionary objects and flask turns it into json
     return response_body
