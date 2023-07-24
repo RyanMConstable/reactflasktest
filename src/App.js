@@ -3,11 +3,24 @@ import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
 
+
+function ReturnApp(props) {
+  if (props.result == null){
+    return(<div>Original</div>)
+  } else {
+    console.log("Here", props)
+    return(<div>{props.result.about_me}</div>)
+  }
+}
+
+
 function App() {
   const [profileData, setProfileData] = useState(null)
   
   //Testing getdata function
   function getData() {
+    console.log("getData")
+    console.log(profileData)
     axios({
       method: "GET",
       url:"http://localhost:5000/profile",
@@ -43,6 +56,7 @@ function App() {
         </a>
       </header>
       <button onClick = {getData}>Test button</button>
+      <ReturnApp result = {profileData}></ReturnApp>
     </div>
   );
 }
