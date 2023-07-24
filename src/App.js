@@ -17,7 +17,8 @@ function ReturnApp(props) {
 function App() {
   const [profileData, setProfileData] = useState(null)
   
-  //Testing getdata function
+  //This function uses Axios to get the response from the API (flask)
+  //Apparently fetch does the same thing (look into it)
   function getData() {
     console.log("GetData", profileData)
     axios({
@@ -35,9 +36,10 @@ function App() {
     })
   }
 
+  //Simple when you click the button it displays info from flask
   return (
     <div className="App">
-      <button onClick = {getData}>Test button</button>
+      <button onClick = {getData}>Display Most Kill Game</button>
       <ReturnApp result = {profileData}/>
     </div>
   );
