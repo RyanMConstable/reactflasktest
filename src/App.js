@@ -9,26 +9,25 @@ function ReturnApp(props) {
     return(<div>Original</div>)
   } else {
     console.log(props)
-    return(<div>{props.result.about_me}</div>)
+    return(<div>{props.result.best}</div>)
   }
 }
 
 
 function App() {
-  const [profileData, setProfileData] = useState(null)
+  const [Data, setProfileData] = useState(null)
   
   //This function uses Axios to get the response from the API (flask)
   //Apparently fetch does the same thing (look into it)
   function getData() {
-    console.log("GetData", profileData)
+    console.log("GetData", Data)
     axios({
       method: "GET",
       url:"http://localhost:5000/profile",
     }).then((response) => {
       const res = response.data
       setProfileData(({
-        profile_name: res.name,
-        about_me:res.about
+        best: res.total,
       }))
     }).catch((error) => {
       if (error.response) {
@@ -40,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <button onClick = {getData}>Display Most Kill Game</button>
-      <ReturnApp result = {profileData}/>
+      <ReturnApp result = {Data}/>
     </div>
   );
 }
