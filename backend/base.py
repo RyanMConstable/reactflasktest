@@ -1,3 +1,4 @@
+import CSGOsql as c
 from flask import Flask
 from flask_cors import CORS, cross_origin
 
@@ -12,10 +13,11 @@ cors = CORS(api, resources={r"/profile": {"origins": "http://localhost:port"}})
 @cross_origin(origin='localhost',headers=['Content- Type', 'Authorization'])
 def my_profile():
     
+    topkilluser = c.findTopX("totalkills", 1)
+    print(topkilluser)
     #Here we can change this to whatever object we want
     response_body = {
-        "name":"Nagato",
-        "about" : "Hello! I'm a full stack developer that loves python and javascript"
+        "total" : str(topkilluser)
     }
     
     #This is not a json object, that's because in flask you can return dictionary objects and flask turns it into json
