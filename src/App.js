@@ -5,12 +5,11 @@ import './App.css';
 
 
 function ReturnApp(props) {
-  if (props.result == null){
-    return(<div>Original</div>)
-  } else {
-    console.log(props)
-    return(<div>{props.result.best}</div>)
+  if (props.result == null) {
+    return(<div></div>)
   }
+  console.log(props)
+  return(<div>{props.result.best}</div>)
 }
 
 
@@ -34,6 +33,7 @@ function App() {
       }
     })
   }
+
 
   //Simple when you click the button it displays info from flask
   return (
