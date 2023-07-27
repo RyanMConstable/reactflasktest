@@ -1,6 +1,6 @@
-import CSGOsql as c
 from flask import Flask
 from flask_cors import CORS, cross_origin
+import formatsqlresult as fsql
 
 api = Flask(__name__)
 
@@ -10,7 +10,7 @@ api = Flask(__name__)
 @cross_origin(origin='localhost',headers=['Content- Type', 'Authorization'])
 def my_profile():
     
-    topkilluser = c.findTopX("totalkills", 1)
+    topkilluser = fsql.displayLeaders()
     #Here we can change this to whatever object we want
     response_body = {
         "total" : str(topkilluser)
