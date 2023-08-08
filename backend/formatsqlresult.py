@@ -1,4 +1,4 @@
 import CSGOsql as c
 
 def displayLeaders():
-    return c.findTopX("totalkills", 1)
+    return c.findTopX("totalkills", 100)
